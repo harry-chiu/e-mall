@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import App from 'containers/App';
 import 'regenerator-runtime';
+import 'normalize.css';
 
 const element = <App />;
 const container = document.getElementById('root');
