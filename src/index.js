@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import App from 'containers/App';
 import 'regenerator-runtime';
 import 'normalize.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const element = <App />;
 const container = document.getElementById('root');

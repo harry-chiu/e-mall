@@ -1,8 +1,17 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Nav = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  max-height: 64px;
+  z-index: 999;
+`;
 
 export const Main = styled.main`
-  min-height: calc(100vh - 64px);
-  margin-top: 64px;
+  padding-top: 64px;
+  padding-left: 240px;
+  min-height: 100%;
 `;

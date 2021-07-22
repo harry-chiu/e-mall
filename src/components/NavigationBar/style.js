@@ -1,15 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
   display: flex;
   align-items: center;
   padding: 0 16px;
-  width: 100%;
-  height: 64px;
-  max-height: 64px;
+  height: 100%;
   color: #ffffff;
   background: #232e3b;
 `;
