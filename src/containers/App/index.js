@@ -1,23 +1,28 @@
 import React from 'react';
 import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
+import HomePage from 'containers/HomePage';
 import GlobalStyle from 'components/GlobalStyle';
 import NavigationBar from 'components/NavigationBar';
-import { Container, Main } from './style';
+import { Nav, Main } from './style';
 
 const App = () => (
-  <Container>
+  <>
     <GlobalStyle />
-    <NavigationBar />
+
+    <Nav>
+      <NavigationBar />
+    </Nav>
 
     <Main>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" />
+          <Route exact path="/" component={HomePage} />
+
           <Redirect to="/" />
         </Switch>
       </BrowserRouter>
     </Main>
-  </Container>
+  </>
 );
 
 export default App;
