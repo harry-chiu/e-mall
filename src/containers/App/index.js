@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
+import { Route, Switch, Redirect, HashRouter } from 'react-router-dom';
 import HomePage from 'containers/HomePage';
 import SideBar from 'components/SideBar';
 import GlobalStyle from 'components/GlobalStyle';
@@ -7,7 +7,7 @@ import NavigationBar from 'components/NavigationBar';
 import { Nav, Aside, Main } from './style';
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <GlobalStyle />
 
     <Nav>
@@ -25,7 +25,7 @@ const App = () => (
         <Redirect to="/" />
       </Switch>
     </Main>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;

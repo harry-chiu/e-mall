@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PublicBanner from 'components/PublicBanner';
 import PartnerBanner from 'components/PartnerBanner';
 import BlockHeader from 'components/BlockHeader';
@@ -24,7 +24,7 @@ const HomePage = () => {
       <ProductBlock>
         <BlockHeader
           title="熱門商品"
-          extra={<NavLink to="/popular">去逛逛</NavLink>}
+          extra={<Link to="/popular">去逛逛</Link>}
         />
 
         <PopularList>
@@ -43,7 +43,7 @@ const HomePage = () => {
       <ProductBlock>
         <BlockHeader
           title="精選商品"
-          extra={<NavLink to="/highlight">去逛逛</NavLink>}
+          extra={<Link to="/highlight">去逛逛</Link>}
         />
 
         <HighlightList>
