@@ -17,7 +17,9 @@ const NaivgationBar = () => {
   return (
     <Container>
       <LeftBlock>
-        <Logo src={LogoPng} alt="brand logo" />
+        <Link to="/">
+          <Logo src={LogoPng} alt="brand logo" />
+        </Link>
       </LeftBlock>
 
       <MiddleBlock>

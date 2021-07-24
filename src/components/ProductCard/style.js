@@ -17,6 +17,10 @@ export const Container = styled.div`
   background: #ffffff;
   cursor: pointer;
 
+  &:hover {
+    box-shadow: 0 0 8px 4px #d0d0d0;
+  }
+
   & > * {
     margin-top: 8px;
 

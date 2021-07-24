@@ -11,7 +11,7 @@ const SideBar = () => (
       <List>
         {mockCategories?.map?.(category => (
           <Item key={category?.value}>
-            <Link to={`/${category?.value}`}>{category?.label}</Link>
+            <Link to={`/category/${category?.value}`}>{category?.label}</Link>
           </Item>
         ))}
       </List>
