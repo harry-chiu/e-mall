@@ -34,15 +34,15 @@ export const Item = styled.li`
   padding: 8px 0;
   cursor: pointer;
 
-  &:hover {
-    color: #007bff;
-  }
-
   & > a {
     display: block;
     width: 100%;
     height: 100%;
     color: inherit;
     text-decoration: none;
+
+    &:hover {
+      color: #007bff;
+    }
   }
 `;

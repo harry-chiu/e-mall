@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import mockCategories from 'mocks/categories';
 import { Container, CategoryBlock, Title, List, Item } from './style';
 
@@ -11,7 +11,7 @@ const SideBar = () => (
       <List>
         {mockCategories?.map?.(category => (
           <Item key={category?.value}>
-            <NavLink to={`/${category?.value}`}>{category?.label}</NavLink>
+            <Link to={`/${category?.value}`}>{category?.label}</Link>
           </Item>
         ))}
       </List>
