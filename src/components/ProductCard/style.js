@@ -1,13 +1,4 @@
-import styled, { css } from 'styled-components';
-import { Star as StarFilled } from '@styled-icons/boxicons-solid/Star';
-import { Star as StarOutlined } from '@styled-icons/boxicons-regular/Star';
-import { StarHalf } from '@styled-icons/boxicons-solid/StarHalf';
-
-const StarIconStyle = css`
-  width: 16px;
-  height: 16px;
-  color: #000000;
-`;
+import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
@@ -21,7 +12,13 @@ export const Container = styled.div`
     box-shadow: 0 0 8px 4px #d0d0d0;
   }
 
-  & > * {
+  & > a {
+    display: inherit;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  & > a > * {
     margin-top: 8px;
 
     &:first-child {
@@ -90,16 +87,4 @@ export const Title = styled.span`
 
 export const Price = styled.span`
   font-size: 14px;
-`;
-
-export const StarFilledIcon = styled(StarFilled)`
-  ${StarIconStyle}
-`;
-
-export const StarOutlinedIcon = styled(StarOutlined)`
-  ${StarIconStyle}
-`;
-
-export const StarHalfIcon = styled(StarHalf)`
-  ${StarIconStyle}
 `;
