@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import mockCategories from 'mocks/categories';
+import mockDatabase from 'mocks/database';
 import { Container, CategoryBlock, Title, List, Item } from './style';
 
 const SideBar = () => (
@@ -9,9 +9,9 @@ const SideBar = () => (
       <Title>分類</Title>
 
       <List>
-        {mockCategories?.map?.(category => (
-          <Item key={category?.value}>
-            <Link to={`/category/${category?.value}`}>{category?.label}</Link>
+        {Object.values(mockDatabase.categories).map(category => (
+          <Item key={category?.id}>
+            <Link to={`/product/${category?.id}`}>{category?.name}</Link>
           </Item>
         ))}
       </List>

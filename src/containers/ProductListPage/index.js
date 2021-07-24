@@ -1,33 +1,25 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import ProductCard from 'components/ProductCard';
+import mockDatabase from 'mocks/database';
 import { Container, Title, ProductList } from './style';
 
 const ProductListPage = () => {
+  const { categoryId } = useParams();
+
+  const category = mockDatabase?.categories?.[categoryId]?.name;
+  const products = Object.values(
+    mockDatabase?.categories?.[categoryId]?.products || {},
+  );
+
   return (
     <Container>
-      <Title>分類</Title>
+      <Title>{category || '-'}</Title>
 
       <ProductList>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products?.map?.(product => (
+          <ProductCard key={product?.id} category={category} {...product} />
+        ))}
       </ProductList>
     </Container>
   );
