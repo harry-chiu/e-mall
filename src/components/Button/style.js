@@ -24,7 +24,7 @@ export const Container = styled.button`
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
-  min-width: 120px;
+  min-width: ${props => (props?.block ? '100%' : '120px')};
   height: 40px;
   text-align: center;
   border: 1px solid #000000;
@@ -36,7 +36,7 @@ export const Container = styled.button`
     border-color: #333333;
   }
 
-  ${props => styles?.[props?.type]}
+  ${props => styles?.[props?.buttonType]}
 `;
 
 export const Icon = styled.div`

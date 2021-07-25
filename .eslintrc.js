@@ -16,5 +16,6 @@ module.exports = {
   plugins: ['react', 'jest'],
   globals: {
     ENV: true,
+    FIREBASE_CONFIG: true,
   },
 };

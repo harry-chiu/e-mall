@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LogoPng from 'images/logo.png';
 import { PAGE_ROUTES } from 'constants/index';
+import Modal from 'components/Modal';
+import LoginForm from 'components/LoginForm';
+import openModal from 'utils/openModal';
 import {
   Container,
   LeftBlock,
@@ -14,6 +17,14 @@ import {
 } from './style';
 
 const NaivgationBar = () => {
+  const openLoginModal = () => {
+    openModal(
+      <Modal>
+        <LoginForm />
+      </Modal>,
+    );
+  };
+
   return (
     <Container>
       <LeftBlock>
@@ -33,7 +44,7 @@ const NaivgationBar = () => {
       </MiddleBlock>
 
       <RightBlock>
-        <SignIn>登入/註冊</SignIn>
+        <SignIn onClick={openLoginModal}>登入/註冊</SignIn>
       </RightBlock>
     </Container>
   );
