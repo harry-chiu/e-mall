@@ -28,7 +28,7 @@ export const Container = styled.button`
   height: 40px;
   text-align: center;
   border: 1px solid #000000;
-  border-radius: 4px;
+  border-radius: 2px;
   font-size: 13px;
   cursor: pointer;
 

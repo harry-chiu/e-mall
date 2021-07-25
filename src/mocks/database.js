@@ -1,7 +1,7 @@
 import faker from 'faker';
 
 const generateProduct = ({ index }) => ({
-  id: index,
+  id: `product-id-${index}`,
   name: faker.commerce.productName(),
   description: faker.commerce.productDescription(),
   price: faker.commerce.price(),

@@ -23,12 +23,13 @@ const App = () => (
     <Main>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/product/:categoryId" component={ProductListPage} />
+        <Route exact path="/products/:categoryId" component={ProductListPage} />
         <Route
-          path="/product/:categoryId/:productId"
+          path="/products/:categoryId/:productId"
           component={ProductDetailPage}
         />
 
+        <Redirect from="/products" to="/products/all" />
         <Redirect to="/" />
       </Switch>
     </Main>

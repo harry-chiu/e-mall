@@ -72,7 +72,12 @@ export const ContentBlock = styled.div`
 
 export const Category = styled.span``;
 
-export const Discount = styled.span``;
+export const Discount = styled.span`
+  padding: 4px 6px;
+  border-radius: 2px;
+  color: #ffffff;
+  background: #000000;
+`;
 
 export const Image = styled.img`
   width: 100%;
@@ -85,6 +90,24 @@ export const Title = styled.span`
   font-size: 13px;
 `;
 
+export const PriceBlock = styled.div`
+  & > * {
+    margin-left: 4px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+`;
+
 export const Price = styled.span`
-  font-size: 14px;
+  color: ${props => (props?.discount ? '#606060' : 'inherit')};
+  font-size: ${props => (props?.discount ? '13px' : '14px')};
+  text-decoration: ${props => (props?.discount ? 'line-through' : 'none')};
+`;
+
+export const DiscountPrice = styled.span`
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
 `;
