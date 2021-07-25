@@ -73,6 +73,7 @@ export const ActionBlock = styled.div`
 `;
 
 export const ContentBlock = styled.div`
+  padding: 16px;
   background: #ffffff;
   border-radius: 2px;
 `;
@@ -103,4 +104,9 @@ export const CartIcon = styled(CartPlus)`
   &:hover {
     color: #000000;
   }
+`;
+
+export const Description = styled.p`
+  padding: 0 8px;
+  color: #606060;
 `;

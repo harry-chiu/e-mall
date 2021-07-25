@@ -15,7 +15,9 @@ import {
   Image,
   RateBlock,
   Title,
+  PriceBlock,
   Price,
+  DiscountPrice,
 } from './style';
 
 const ProductCard = ({
@@ -31,7 +33,7 @@ const ProductCard = ({
 
   return (
     <Container>
-      <Link to={`/product/${categoryId}/${id}`}>
+      <Link to={`/products/${categoryId}/${id}`}>
         <TopBlock>
           <Category>{category || '-'}</Category>
 
@@ -52,9 +54,14 @@ const ProductCard = ({
               <Title>{name || '-'}</Title>
             </OneLineText>
 
-            <OneLineText>
-              <Price>${price ?? '-'}</Price>
-            </OneLineText>
+            <PriceBlock>
+              <Price discount={discount}>${price ?? '-'}</Price>
+              {discount && (
+                <DiscountPrice>
+                  ${Number(price * discount).toFixed(2)}
+                </DiscountPrice>
+              )}
+            </PriceBlock>
           </ContentBlock>
         </BottomBlock>
       </Link>
@@ -66,7 +73,7 @@ ProductCard.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   rate: PropTypes.number,
-  price: PropTypes.number,
+  price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   category: PropTypes.string,
   discount: PropTypes.number,
   direction: PropTypes.oneOf(['vertical', 'horizental']),

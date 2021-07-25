@@ -43,11 +43,11 @@ const ButtonSelector = ({ mutiple, options }) => {
 };
 
 ButtonSelector.propTypes = {
-  mutiple: PropTypes.boolean,
+  mutiple: PropTypes.bool,
   options: PropTypes.array,
 };
 
-ButtonSelector.propTypes = {
+ButtonSelector.defaultProps = {
   mutiple: false,
 };
 

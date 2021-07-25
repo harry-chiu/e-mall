@@ -19,7 +19,7 @@ const Rate = ({ rate }) => {
     );
 
   // Add half star
-  if (hasHalfStar) stars.push(<StarHalfIcon />);
+  if (hasHalfStar) stars.push(<StarHalfIcon key="half-star" />);
 
   // Add outlined stars
   Array(MAX_STAR - stars.length)

@@ -15,7 +15,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin: 0;
+  margin-bottom: 0;
 `;
 
 export const ProductList = styled.div`

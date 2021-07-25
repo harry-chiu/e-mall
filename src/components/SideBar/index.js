@@ -11,7 +11,7 @@ const SideBar = () => (
       <List>
         {Object.values(mockDatabase.categories).map(category => (
           <Item key={category?.id}>
-            <Link to={`/product/${category?.id}`}>{category?.name}</Link>
+            <Link to={`/products/${category?.id}`}>{category?.name}</Link>
           </Item>
         ))}
       </List>
