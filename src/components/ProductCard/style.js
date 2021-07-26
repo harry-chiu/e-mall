@@ -1,13 +1,4 @@
-import styled, { css } from 'styled-components';
-import { Star as StarFilled } from '@styled-icons/boxicons-solid/Star';
-import { Star as StarOutlined } from '@styled-icons/boxicons-regular/Star';
-import { StarHalf } from '@styled-icons/boxicons-solid/StarHalf';
-
-const StarIconStyle = css`
-  width: 16px;
-  height: 16px;
-  color: #000000;
-`;
+import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
@@ -17,7 +8,17 @@ export const Container = styled.div`
   background: #ffffff;
   cursor: pointer;
 
-  & > * {
+  &:hover {
+    box-shadow: 0 0 8px 4px #d0d0d0;
+  }
+
+  & > a {
+    display: inherit;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  & > a > * {
     margin-top: 8px;
 
     &:first-child {
@@ -71,7 +72,12 @@ export const ContentBlock = styled.div`
 
 export const Category = styled.span``;
 
-export const Discount = styled.span``;
+export const Discount = styled.span`
+  padding: 4px 6px;
+  border-radius: 2px;
+  color: #ffffff;
+  background: #000000;
+`;
 
 export const Image = styled.img`
   width: 100%;
@@ -84,18 +90,24 @@ export const Title = styled.span`
   font-size: 13px;
 `;
 
+export const PriceBlock = styled.div`
+  & > * {
+    margin-left: 4px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+`;
+
 export const Price = styled.span`
-  font-size: 14px;
+  color: ${props => (props?.discount ? '#606060' : 'inherit')};
+  font-size: ${props => (props?.discount ? '13px' : '14px')};
+  text-decoration: ${props => (props?.discount ? 'line-through' : 'none')};
 `;
 
-export const StarFilledIcon = styled(StarFilled)`
-  ${StarIconStyle}
-`;
-
-export const StarOutlinedIcon = styled(StarOutlined)`
-  ${StarIconStyle}
-`;
-
-export const StarHalfIcon = styled(StarHalf)`
-  ${StarIconStyle}
+export const DiscountPrice = styled.span`
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
 `;

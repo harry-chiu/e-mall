@@ -1,13 +1,15 @@
 import React from 'react';
-import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
+import { Route, Switch, Redirect, HashRouter } from 'react-router-dom';
 import HomePage from 'containers/HomePage';
+import ProductListPage from 'containers/ProductListPage';
+import ProductDetailPage from 'containers/ProductDetailPage';
 import SideBar from 'components/SideBar';
 import GlobalStyle from 'components/GlobalStyle';
 import NavigationBar from 'components/NavigationBar';
 import { Nav, Aside, Main } from './style';
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <GlobalStyle />
 
     <Nav>
@@ -21,11 +23,17 @@ const App = () => (
     <Main>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/products/:category" component={ProductListPage} />
+        <Route
+          path="/products/:category/:productId"
+          component={ProductDetailPage}
+        />
 
+        <Redirect from="/products" to="/products/all" />
         <Redirect to="/" />
       </Switch>
     </Main>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;

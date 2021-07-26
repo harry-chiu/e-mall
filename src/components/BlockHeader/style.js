@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding: 8px 16px;
   color: #ffffff;
   background: #232e3b;
-  border-radius: 4px;
+  border-radius: 2px;
 `;
 
 export const Title = styled.span`

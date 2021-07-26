@@ -9,7 +9,9 @@ export const Container = styled.div`
   background: #232e3b;
 `;
 
-export const LeftBlock = styled.div``;
+export const LeftBlock = styled.div`
+  min-width: 120px;
+`;
 
 export const MiddleBlock = styled.div`
   flex: 1;
@@ -35,4 +37,32 @@ export const SignIn = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
+`;
+
+export const List = styled.ul`
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & > li {
+    margin-left: 24px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+`;
+
+export const Item = styled.li`
+  color: #ffffff;
+
+  & > a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: #ffe200;
+    }
+  }
 `;
