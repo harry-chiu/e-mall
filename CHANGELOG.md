@@ -1,3 +1,20 @@
+# [1.3.0](https://github.com/harry-chiu/e-mall/compare/v1.2.0...v1.3.0) (2021-07-26)
+
+
+### Bug Fixes
+
+* add navigation ([f232370](https://github.com/harry-chiu/e-mall/commit/f232370a84bf9d1017f7f4b7c208f5e0cc2f31b7))
+* gh-pages automatic deploy ([e2edc27](https://github.com/harry-chiu/e-mall/commit/e2edc274f9bbdec9464694ad14ca7d339279e7c0))
+* login ui layout ([bf99f09](https://github.com/harry-chiu/e-mall/commit/bf99f0981efde99ac496f3748113941dcff9db8d))
+* product detail ui layout ([b93ba27](https://github.com/harry-chiu/e-mall/commit/b93ba2709f3b7069d43d5b535f292efcbbd6f879))
+* product spec ui layout ([c71f835](https://github.com/harry-chiu/e-mall/commit/c71f83591c5d22105af0c1e044885f832e0662aa))
+* replace mock data to real data ([705dc09](https://github.com/harry-chiu/e-mall/commit/705dc09d6655e47f5281f521820976fe078eb7fd))
+
+
+### Features
+
+* ui layout ([38eca71](https://github.com/harry-chiu/e-mall/commit/38eca7189091dfb0879709975c9c0885997bac35))
+
 # [1.2.0](https://github.com/harry-chiu/e-mall/compare/v1.1.0...v1.2.0) (2021-07-24)
 
 
