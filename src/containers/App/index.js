@@ -23,9 +23,9 @@ const App = () => (
     <Main>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/products/:categoryId" component={ProductListPage} />
+        <Route exact path="/products/:category" component={ProductListPage} />
         <Route
-          path="/products/:categoryId/:productId"
+          path="/products/:category/:productId"
           component={ProductDetailPage}
         />
 

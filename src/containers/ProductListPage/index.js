@@ -1,35 +1,82 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import firebase from 'firebase/app';
 import { useParams } from 'react-router-dom';
 import ProductCard from 'components/ProductCard';
 import Breadcrumbs from 'components/Breadcrumbs';
-import mockDatabase from 'mocks/database';
 import { Container, Title, ProductList } from './style';
 
 const ProductListPage = () => {
-  const { categoryId } = useParams();
+  const { category } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
 
-  const category = mockDatabase?.categories?.[categoryId];
-  const categoryName = category?.name;
-  const products = Object.values(
-    mockDatabase?.categories?.[categoryId]?.products || {},
-  );
+  const isAll = category === 'all';
+
+  const startLoading = () => {
+    setLoading(true);
+  };
+
+  const stopLoading = () => {
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    startLoading();
+
+    if (isAll) {
+      firebase
+        .database()
+        .ref('/products')
+        .once('value', snapshot => {
+          const newProducts = Object.values(snapshot.val() || {});
+
+          setProducts(newProducts);
+        })
+        .finally(stopLoading);
+    } else {
+      firebase
+        .database()
+        .ref('/products')
+        .orderByChild('category')
+        .equalTo(category)
+        .once('value', snapshot => {
+          const newProducts = Object.values(snapshot.val() || {});
+
+          setProducts(newProducts);
+        })
+        .finally(stopLoading);
+    }
+  }, [category, isAll]);
 
   return (
     <Container>
       <Breadcrumbs
         routes={[
           { name: '首頁', path: '/' },
-          { name: categoryName || '商品列表' },
+          { name: isAll ? '商品列表' : category },
         ]}
       />
 
-      <Title>{categoryName || '-'}</Title>
+      <Title>{isAll ? '商品列表' : category}</Title>
 
-      <ProductList>
-        {products?.map?.(product => (
-          <ProductCard key={product?.id} category={categoryName} {...product} />
-        ))}
-      </ProductList>
+      {loading && (
+        <ProductList>
+          <ProductCard loading />
+          <ProductCard loading />
+          <ProductCard loading />
+          <ProductCard loading />
+          <ProductCard loading />
+          <ProductCard loading />
+        </ProductList>
+      )}
+
+      {!loading && (
+        <ProductList>
+          {products?.map?.(product => (
+            <ProductCard key={product?.id} {...product} />
+          ))}
+        </ProductList>
+      )}
     </Container>
   );
 };

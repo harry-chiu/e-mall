@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import firebase from 'firebase/app';
+import Skeleton from 'react-loading-skeleton';
 import Rate from 'components/Rate';
 import Field from 'components/Field';
 import Button from 'components/Button';
@@ -7,7 +9,6 @@ import Breadcrumbs from 'components/Breadcrumbs';
 import NumberInput from 'components/NumberInput';
 import BlockHeader from 'components/BlockHeader';
 import ButtonSelector from 'components/ButtonSelector';
-import mockDatabase from 'mocks/database';
 import {
   Container,
   SpecBlock,
@@ -27,12 +28,31 @@ import {
 } from './style';
 
 const ProductDetailPage = () => {
-  const { categoryId, productId } = useParams();
+  const { category, productId } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [product, setProduct] = useState(null);
 
-  const category = mockDatabase?.categories?.[categoryId];
-  const product = category?.products?.[productId] || {};
+  const startLoading = () => {
+    setLoading(true);
+  };
 
-  console.log(category);
+  const stopLoading = () => {
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    startLoading();
+
+    firebase
+      .database()
+      .ref(`/products/${productId}`)
+      .once('value', snapshot => {
+        const newProduct = snapshot.val() || {};
+
+        setProduct(newProduct);
+      })
+      .finally(stopLoading);
+  }, []);
 
   return (
     <Container>
@@ -43,8 +63,8 @@ const ProductDetailPage = () => {
             path: '/',
           },
           {
-            name: category?.name || '商品列表',
-            path: `/products/${categoryId}`,
+            name: category || '商品列表',
+            path: `/products/${category}`,
           },
           {
             name: product?.name || '-',
@@ -59,15 +79,16 @@ const ProductDetailPage = () => {
 
         <InfoBlock>
           <TitleBlock>
-            <Name>{product?.name}</Name>
+            {loading && <Skeleton width={120} />}
+            {!loading && <Name>{product?.name}</Name>}
           </TitleBlock>
 
           <RateBlock>
-            <Rate rate={product?.rate} />
+            <Rate rate={product?.rate || 0} />
           </RateBlock>
 
           <PriceBlock>
-            <Price>${product?.price || '-'}</Price>
+            {!loading && <Price>${product?.price || '-'}</Price>}
           </PriceBlock>
 
           <FormBlock>
@@ -105,7 +126,11 @@ const ProductDetailPage = () => {
       <ContentBlock>
         <BlockHeader title="商品介紹" />
 
-        <Description>{product?.description}</Description>
+        <Description>
+          {loading && <Skeleton width={120} />}
+          {loading && <Skeleton count={5} />}
+          {!loading && product?.description}
+        </Description>
       </ContentBlock>
     </Container>
   );
