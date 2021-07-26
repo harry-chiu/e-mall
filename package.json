@@ -21,6 +21,7 @@
     "ramda": "^0.27.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-loading-skeleton": "^2.2.0",
     "react-router-dom": "^5.2.0",
     "react-slick": "^0.28.1",
     "regenerator-runtime": "^0.13.7",

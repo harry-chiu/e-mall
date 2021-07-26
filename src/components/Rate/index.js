@@ -3,7 +3,7 @@ import { MAX_STAR } from './constants';
 import { StarFilledIcon, StarOutlinedIcon, StarHalfIcon } from './style';
 
 const Rate = ({ rate }) => {
-  if (!rate || Number.isNaN(rate)) return '-';
+  if (!rate || Number.isNaN(rate)) return null;
 
   const [filledStarCount, hasHalfStar] = String(rate)
     ?.split?.('.')

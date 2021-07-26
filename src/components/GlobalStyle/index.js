@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     background: #ecedf0;
   }
+
+  .react-loading-skeleton {
+    margin-bottom: 8px;
+  }
 `;
 
 export default GlobalStyle;
